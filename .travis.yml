@@ -19,3 +19,5 @@ install:
 - npm run vscode:prepublish
 script:
 - npm test
+after_success:
+  - codecov
