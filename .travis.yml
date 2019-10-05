@@ -11,14 +11,13 @@ before_install:
 - npm install -g typescript
 - npm install -g codecov
 install:
-- |
-  if [ $TRAVIS_OS_NAME == "linux" ]; then
-    export DISPLAY=':99.0';
-    /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 & 
-  fi
+- "if [ $TRAVIS_OS_NAME == \"linux\" ]; then\n  export DISPLAY=':99.0';\n  /usr/bin/Xvfb
+  :99 -screen 0 1024x768x24 > /dev/null 2>&1 & \nfi\n"
 - npm install
 - npm run vscode:prepublish
 script:
 - npm test
 after_success:
 - bash < (curl -s https://codecov.io/bash)
+dd:
+  secure: gJQNzCTp4ifJfWsNwjifeEZsvxWsrimwo6RmZLAVRQVv+P/+AAsqJzkjqY0lAyOwvrib2mS7lcziN/ZLrVQXbzEMfUbhBHRREReg3jz8NPJBo6oO1yXPjjnC2XhnGTcpjvbukFdggJlMc13qaW0eHGaGAR4NuldDrB6hb9V/m79fS9F3maonyS/QfwgQlq87HZocl0iloJnSz75ePRe3+rh6RmNzgMlttu/uK4SsMo+K8coq9zSP3BrxhD89pDO7sBacenLZoHSeoNno+egy3BLM0MUOg6r9Xk612x86Rvl3dvZEkGiM0ZUhwMJmtnm6uHSw9IqpcUPStNfmrc6SZtW5XOIWCl1sLLhHh0v7qibZP1CbjIuWDqGMNiDme0PD21D94jNMk0BVL7gVlHH4n2Iaf+cTQBo8SdOlk0Kq/tYwG/Gc468uuLFU/r9bz3q7w5jzUrQVc2bDizySdc8wqt8qd2EE0slKUXfIBZqQqvLbQ1fTdbZUcx3jSbHlrgEcJWrqCtvEIII9eWpVesPVwxBD5HZg0O4Ln1AjjM1ZUSYnDuvi0PESRJNdcRtwo2XmlCOSAzXKh9uIc34llrd8WjgGV1DSMFZgGadeFDvyFjuJLbo9Xt9CVk3hQgeLAo78ewhj5CZcvHW3xn6PzivRwUn+nsDIFkzvKEXVnthUVH8=
