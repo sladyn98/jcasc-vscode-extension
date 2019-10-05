@@ -9,6 +9,7 @@ os:
 - linux
 before_install:
 - npm install -g typescript
+- npm install -g codecov
 install:
 - |
   if [ $TRAVIS_OS_NAME == "linux" ]; then
@@ -20,4 +21,4 @@ install:
 script:
 - npm test
 after_success:
-  - codecov
+- bash < (curl -s https://codecov.io/bash)
